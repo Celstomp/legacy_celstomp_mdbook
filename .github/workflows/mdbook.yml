@@ -31,16 +31,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Install Rust
-        uses: dtolnay/rust-action@stable
-      
-      - name: Install mdBook
+      - name: Install Rust and mdBook
         run: |
-          cargo install mdbook
+          # Install Rust
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
+          # Add to PATH
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          # Source cargo env
+          . "$HOME/.cargo/env"
+          # Install mdBook
+          cargo install mdbook
       
       - name: Verify mdBook installation
         run: |
+          . "$HOME/.cargo/env"
           which mdbook
           mdbook --version
       
@@ -51,9 +55,11 @@ jobs:
             ls -la
             exit 1
           fi
+          echo "book.toml found!"
       
       - name: Build with mdBook
         run: |
+          . "$HOME/.cargo/env"
           echo "Building mdBook site..."
           mdbook build
           echo "Build completed. Checking output..."
