@@ -13,8 +13,8 @@ create-missing = false
 [preprocessor.links]
 
 [output.html]
-default-theme = "navy"
-preferred-dark-theme = "navy"
+default-theme = "rust"
+preferred-dark-theme = "rust"
 smart-punctuation = true
 mathjax-support = false
 additional-css = ["src/custom.css"]
