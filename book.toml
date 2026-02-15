@@ -13,11 +13,8 @@ create-missing = false
 [preprocessor.links]
 
 [output.html]
-default-theme = "dark"
-preferred-dark-theme = "dark"
-smart-punctuation = true
-mathjax-support = false
-additional-css = ["src/custom.css", "src/celstomp-theme.css"]
+default-theme = "rust"
+preferred-dark-theme = "rust"
 git-repository-url = "https://github.com/immalloy/celstomp_mdbook"
 
 edit-url-template = "https://github.com/immalloy/celstomp_mdbook/edit/main/src/{path}"
